@@ -53,7 +53,7 @@ the internal database or vault may result in serious performance issues.
 | Minimum     | 2           | 2             | 8 GB RAM     | 40GB |
 | Recommended | 2           | 4             | 16-32 GB RAM | 40GB |
 
--> **Note:** Per VMWare’s recommendation, always allocate the least amount of CPU necessary. HashiCorp recommends starting with 2 CPUs and increasing if necessary.
+-> **Note:** Per VMware’s recommendation, always allocate the least amount of CPU necessary. HashiCorp recommends starting with 2 CPUs and increasing if necessary.
 
 #### Hardware Sizing Considerations
 
@@ -103,7 +103,7 @@ Recommended object storage solutions are AWS S3, Google Cloud storage, Azure blo
 
 #### Network
 
-To deploy Terraform Enterprise on VMWare you will need to create new or use existing networking
+To deploy Terraform Enterprise on VMware you will need to create new or use existing networking
 infrastructure that has access to not only the S3 bucket, the PostgreSQL
 instance, and the Vault server, but also any infrastructure you expect to
 manage with the Terraform Enterprise server. If you plan to use your Terraform Enterprise server to manage or
@@ -182,7 +182,7 @@ in the documentation.
 
 ### Failure Scenarios
 
-VMWare hypervisor provides a high level of resilience in various cases
+VMware hypervisor provides a high level of resilience in various cases
 of failure (at the server hardware layer through vMotion, at the storage
 layer through RDS, and at the network layer through virtual distributed
 networking.) In addition, having ESX failover to a DR datacenter
@@ -291,7 +291,7 @@ cluster endpoint URL.
 
 ### Failure Scenarios
 
-VMWare hypervisor provides a high level of resilience in various cases
+VMware hypervisor provides a high level of resilience in various cases
 of failure (at the server hardware layer through vMotion, at the storage
 layer through RDS, and at the network layer through virtual distributed
 networking.) In addition, having ESX failover to a DR datacenter
