@@ -125,7 +125,7 @@ of this guide. You will be prompted for the public and private certificates duri
 
 ## Infrastructure Diagram
 
-![vmware-infrastructure-diagram](./assets/vmware-infrastructure-diagram.jpg)
+![vmware-infrastructure-diagram](./assets/vmware-infrastructure-diagram.png)
 
 The above diagram shows the infrastructure components at a high-level.
 
