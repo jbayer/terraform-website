@@ -99,13 +99,6 @@ by S3 if required by your security policy.
 
 Recommended object storage solutions are AWS S3, Google Cloud storage, Azure blob storage. Other options for S3-compatible storage are [minio](https://www.minio.io/) and [ceph](https://ceph.com/), among many others. Please feel free to reach out to [support](https://www.hashicorp.com/support) with questions.
 
-### Vault Servers
-
-In order to provide a fully stateless application instance, Terraform Enterprise must be
-configured to speak with an external Vault server/cluster. This reference
-architecture assumes that a highly available Vault cluster is accessible at an
-endpoint the Terraform Enterprise servers can reach.
-
 ### Other Considerations
 
 #### Network
