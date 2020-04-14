@@ -53,7 +53,7 @@ the internal database or vault may result in serious performance issues.
 | Minimum     | 2           | 2             | 8 GB RAM     | 40GB |
 | Recommended | 2           | 4             | 16-32 GB RAM | 40GB |
 
--> **Note:** Per VMWare’s recommendation, always allocate the least amount of CPU necessary. HashiCorp recommends starting with 2 CPUs and increasing if necessary.
+-> **Note:** Per VMware’s recommendation, always allocate the least amount of CPU necessary. HashiCorp recommends starting with 2 CPUs and increasing if necessary.
 
 #### Hardware Sizing Considerations
 
@@ -99,18 +99,11 @@ by S3 if required by your security policy.
 
 Recommended object storage solutions are AWS S3, Google Cloud storage, Azure blob storage. Other options for S3-compatible storage are [minio](https://www.minio.io/) and [ceph](https://ceph.com/), among many others. Please feel free to reach out to [support](https://www.hashicorp.com/support) with questions.
 
-### Vault Servers
-
-In order to provide a fully stateless application instance, Terraform Enterprise must be
-configured to speak with an external Vault server/cluster. This reference
-architecture assumes that a highly available Vault cluster is accessible at an
-endpoint the Terraform Enterprise servers can reach.
-
 ### Other Considerations
 
 #### Network
 
-To deploy Terraform Enterprise on VMWare you will need to create new or use existing networking
+To deploy Terraform Enterprise on VMware you will need to create new or use existing networking
 infrastructure that has access to not only the S3 bucket, the PostgreSQL
 instance, and the Vault server, but also any infrastructure you expect to
 manage with the Terraform Enterprise server. If you plan to use your Terraform Enterprise server to manage or
@@ -132,7 +125,7 @@ of this guide. You will be prompted for the public and private certificates duri
 
 ## Infrastructure Diagram
 
-![vmware-infrastructure-diagram](./assets/vmware-infrastructure-diagram.jpg)
+![vmware-infrastructure-diagram](./assets/vmware-infrastructure-diagram.png)
 
 The above diagram shows the infrastructure components at a high-level.
 
@@ -189,7 +182,7 @@ in the documentation.
 
 ### Failure Scenarios
 
-VMWare hypervisor provides a high level of resilience in various cases
+VMware hypervisor provides a high level of resilience in various cases
 of failure (at the server hardware layer through vMotion, at the storage
 layer through RDS, and at the network layer through virtual distributed
 networking.) In addition, having ESX failover to a DR datacenter
@@ -236,14 +229,6 @@ From the AWS website:
 
 Other cloud providers (Azure, GCP) also provide highly available storage. If you choose to utilize an on-premises storage solution, such as ceph, it will be your responsibility to configure HA as required by your implementation.
 
-#### Vault Servers
-
-For the purposes of this guide, the external Vault cluster is expected to be
-deployed and configured in line with the [HashiCorp Vault Enterprise Reference
-Architecture](https://www.vaultproject.io/guides/operations/reference-architecture.html).
-This would provide high availability and disaster recovery support, minimising
-downtime in the event of an outage.
-
 ## Disaster Recovery
 
 ### Terraform Enterprise Servers
@@ -268,13 +253,6 @@ Recovery is made available via [object
 versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) on
 AWS, as well as [Google Cloud Storage](https://cloud.google.com/storage/docs/object-versioning) and [Azure Storage Services](https://docs.microsoft.com/en-us/rest/api/storageservices/versioning-for-the-azure-storage-services). Ceph also supports [bucket versioning](http://docs.ceph.com/docs/master/radosgw/s3/bucketops/#enable-suspend-bucket-versioning).
 
-### Vault Servers
-
-The recommended Vault Reference Architecture uses Consul for storage.  Consul
-provides the underlying [snapshot
-functionality](https://www.consul.io/docs/commands/snapshot.html) to support
-Vault backup and recovery.
-
 ## Production - Mounted Disk
 
 ### Normal Operation
@@ -292,13 +270,13 @@ cluster endpoint URL.
 
 ### Infrastructure Diagram
 
-![vmware-mounted-disk-infrastructure-diagram](./assets/vmware-mounted-disk-infrastructure-diagram.jpg)
+![vmware-mounted-disk-infrastructure-diagram](./assets/vmware-mounted-disk-infrastructure-diagram.png)
 
 ### High Availability
 
 ### Failure Scenarios
 
-VMWare hypervisor provides a high level of resilience in various cases
+VMware hypervisor provides a high level of resilience in various cases
 of failure (at the server hardware layer through vMotion, at the storage
 layer through RDS, and at the network layer through virtual distributed
 networking.) In addition, having ESX failover to a DR datacenter
@@ -341,15 +319,6 @@ The configuration of the storage device is not covered in this document.
 For more information about highly available storage please see your
 storage vendor.
 
-#### Vault Servers
-
-For the purposes of this guide, the external Vault cluster is expected
-to be deployed and configured in line with the
-[HashiCorp Vault Enterprise Reference
-Architecture](https://www.vaultproject.io/guides/operations/reference-architecture.html).
-This would provide high availability and disaster recovery support,
-minimising downtime in the event of an outage.
-
 ### Disaster Recovery
 
 #### Terraform Enterprise Servers
@@ -374,10 +343,3 @@ offsite and will be made available to the server in the event of a DR.
 Object storage will be written to the mounted storage. The expectation
 is that the storage server is replicated or backed up offsite and will
 be made available to the server in the event of a DR.
-
-#### Vault Servers
-
-The recommended Vault Reference Architecture uses Consul for storage.
-Consul provides the underlying [snapshot
-functionality](https://www.consul.io/docs/commands/snapshot.html)
-to support Vault backup and recovery.
