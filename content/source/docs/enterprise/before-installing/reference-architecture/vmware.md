@@ -285,7 +285,7 @@ cluster endpoint URL.
 
 ### Infrastructure Diagram
 
-![vmware-mounted-disk-infrastructure-diagram](./assets/vmware-mounted-disk-infrastructure-diagram.jpg)
+![vmware-mounted-disk-infrastructure-diagram](./assets/vmware-mounted-disk-infrastructure-diagram.png)
 
 ### High Availability
 
