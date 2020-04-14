@@ -229,14 +229,6 @@ From the AWS website:
 
 Other cloud providers (Azure, GCP) also provide highly available storage. If you choose to utilize an on-premises storage solution, such as ceph, it will be your responsibility to configure HA as required by your implementation.
 
-#### Vault Servers
-
-For the purposes of this guide, the external Vault cluster is expected to be
-deployed and configured in line with the [HashiCorp Vault Enterprise Reference
-Architecture](https://www.vaultproject.io/guides/operations/reference-architecture.html).
-This would provide high availability and disaster recovery support, minimising
-downtime in the event of an outage.
-
 ## Disaster Recovery
 
 ### Terraform Enterprise Servers
@@ -260,13 +252,6 @@ recommend regular database snapshots.
 Recovery is made available via [object
 versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) on
 AWS, as well as [Google Cloud Storage](https://cloud.google.com/storage/docs/object-versioning) and [Azure Storage Services](https://docs.microsoft.com/en-us/rest/api/storageservices/versioning-for-the-azure-storage-services). Ceph also supports [bucket versioning](http://docs.ceph.com/docs/master/radosgw/s3/bucketops/#enable-suspend-bucket-versioning).
-
-### Vault Servers
-
-The recommended Vault Reference Architecture uses Consul for storage.  Consul
-provides the underlying [snapshot
-functionality](https://www.consul.io/docs/commands/snapshot.html) to support
-Vault backup and recovery.
 
 ## Production - Mounted Disk
 
@@ -334,15 +319,6 @@ The configuration of the storage device is not covered in this document.
 For more information about highly available storage please see your
 storage vendor.
 
-#### Vault Servers
-
-For the purposes of this guide, the external Vault cluster is expected
-to be deployed and configured in line with the
-[HashiCorp Vault Enterprise Reference
-Architecture](https://www.vaultproject.io/guides/operations/reference-architecture.html).
-This would provide high availability and disaster recovery support,
-minimising downtime in the event of an outage.
-
 ### Disaster Recovery
 
 #### Terraform Enterprise Servers
@@ -367,10 +343,3 @@ offsite and will be made available to the server in the event of a DR.
 Object storage will be written to the mounted storage. The expectation
 is that the storage server is replicated or backed up offsite and will
 be made available to the server in the event of a DR.
-
-#### Vault Servers
-
-The recommended Vault Reference Architecture uses Consul for storage.
-Consul provides the underlying [snapshot
-functionality](https://www.consul.io/docs/commands/snapshot.html)
-to support Vault backup and recovery.
